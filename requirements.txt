@@ -1,0 +1,27 @@
+# Requirements untuk Final Project Data Mining
+# Home Credit Risk - Preprocessing & Modeling
+
+# Data Processing
+pandas>=1.3.0
+numpy>=1.21.0
+
+# Visualization
+matplotlib>=3.4.0
+seaborn>=0.11.0
+
+# Machine Learning - Core
+scikit-learn>=1.0.0
+
+# Imbalanced Data Handling
+imbalanced-learn>=0.9.0
+
+# Gradient Boosting
+xgboost>=1.5.0
+
+# Deep Learning untuk Tabular Data
+pytorch-tabnet>=3.1.0
+torch>=1.9.0
+
+# Optional: untuk analysis lebih lanjut
+jupyter>=1.0.0
+notebook>=6.4.0

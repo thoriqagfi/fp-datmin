@@ -1,14 +1,14 @@
 # Home Credit Default Risk --- Final Project Data Mining
 
-## 📌 Deskripsi Proyek
+## 📌 Deskripsi Final Project
 
-Proyek ini merupakan Final Project mata kuliah **Data Mining** yang bertujuan untuk melakukan **Data Exploration**, **Data Aggregation**, **Exploratory Data Analysis (EDA)**, **preprocessing**, **pemodelan machine learning**, dan **evaluasi dan analisis hasil** untuk memprediksi apakah seorang nasabah akan mengalami kesulitan pembayaran (default).
+Final project ini merupakan Final Project mata kuliah **Data Mining** yang bertujuan untuk melakukan **Data Exploration**, **Data Aggregation**, **Exploratory Data Analysis (EDA)**, **preprocessing**, **pemodelan machine learning**, dan **evaluasi dan analisis hasil** untuk memprediksi apakah seorang nasabah akan mengalami kesulitan pembayaran (default).
 
 Dataset yang digunakan berasal dari kompetisi Kaggle:\
 👉 *Home Credit Default Risk* ---
 https://www.kaggle.com/c/home-credit-default-risk
 
-Proyek ini menyajikan pipeline lengkap mulai dari:
+Final project ini menyajikan pipeline lengkap mulai dari:
 - pemahaman dataset,
 - aggregat dan merging data multi-file,
 - EDA,
@@ -18,13 +18,11 @@ Proyek ini menyajikan pipeline lengkap mulai dari:
 
 ------------------------------------------------------------------------
 
-## 👥 Anggota Tim
+## Anggota Tim
 
-  Nama                        NRP
-  --------------------------- ------------
-  **Thariq Agfi Hermawan**    5025211215
-  **Gayu Baruwa**             5025221253
-  **Achmad Fajri Sudrajab**   5025221254
+-  **Thariq Agfi Hermawan**   |    5025211215
+-  **Gayu Baruwa**            |    5025221104
+-  **Achmad Fajri Sudrajab**  |    5025221247
 
 ------------------------------------------------------------------------
 
@@ -32,7 +30,7 @@ Proyek ini menyajikan pipeline lengkap mulai dari:
 
     project/
     │
-    ├── dataset/                # berisi seluruh file CSV dari Kaggle
+    ├── dataset/                # berisi seluruh file CSV dari Home Credit Risk
     ├── main.ipynb # script utama
     ├── image/
     └── README.md
@@ -75,19 +73,10 @@ File penting:
 
 5.  Jalankan notebook
 
-------------------------------------------------------------------------
-
-## 📊 Hasil Analisis & Model
-
-Notebook mencakup: - EDA lengkap\
-- Pembersihan data\
-- Feature engineering\
-- Modeling (Logistic Regression, Random Forest, LightGBM/XGBoost)\
-- Evaluasi (ROC-AUC, F1-score, confusion matrix)
 
 ------------------------------------------------------------------------
 
-## 📚 Teknologi
+## Teknologi
 
 -   Python
 -   Pandas, NumPy

@@ -23,8 +23,8 @@ Final project ini menyajikan pipeline lengkap mulai dari:
 ## Anggota Tim
 
 - **Thariq Agfi Hermawan** | 5025211215
-- **Gayu Baruwa** | 5025221104
-- **Achmad Fajri Sudrajab** | 5025221247
+- **Achmad Fajri Sudrajab** | 5025221104
+- **Gayu Baruwa** | 5025221247
 
 ---
 

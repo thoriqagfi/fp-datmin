@@ -16,6 +16,7 @@ Final project ini menyajikan pipeline lengkap mulai dari:
 - Modeling dengan multiple algorithms
 - Stacking Ensemble
 - Evaluasi performa
+- **Perbandingan baseline vs full pipeline** untuk menunjukkan value dari data aggregation
 
 ---
 
@@ -33,9 +34,35 @@ Final project ini menyajikan pipeline lengkap mulai dari:
 fp-datmin/
 │
 ├── datasets/                         # Dataset asli dari Kaggle
+│   ├── application_train.csv
+│   ├── application_test.csv
+│   ├── bureau.csv
+│   ├── bureau_balance.csv
+│   ├── credit_card_balance.csv
+│   ├── installments_payments.csv
+│   ├── POS_CASH_balance.csv
+│   └── previous_application.csv
+│
+├── processed/                        # Data hasil preprocessing (optional)
+│   └── train_processed.csv          # Output dari main.ipynb
+│
+├── models/                           # Model trained dari full pipeline (optional)
+│   ├── random_forest_model.pkl
+│   ├── xgboost_model.pkl
+│   ├── tabnet_model.zip
+│   ├── scaler.pkl
+│   ├── meta_model.pkl
+│   └── model_comparison_results.csv
+│
+├── baseline_models/                  # Model trained dari baseline
+│   ├── baseline_model_results.csv
+│   └── baseline_features.csv
+│
 ├── image/                            # Visualisasi
-├── main.ipynb                        # BAGIAN 1: Data Aggregation & EDA
-├── preprocessing_and_modeling.ipynb  # BAGIAN 2: Preprocessing & Modeling
+│
+├── main.ipynb                        # Aggregation & EDA
+├── preprocessing_and_modeling.ipynb  # Full Pipeline (Aggregated Data)
+├── baseline_modeling.ipynb           # Baseline (Raw Data Only)
 ├── requirements.txt                  # Dependencies
 └── README.md
 ```
@@ -81,20 +108,32 @@ pip install -r requirements.txt
 - Run All Cells
 - Output: `processed/train_processed.csv`
 
-### 5. Jalankan Bagian 2
+### 5. Jalankan Bagian 2A - Baseline Modeling (Raw Data)
+
+- Buka `baseline_modeling.ipynb`
+- Run All Cells
+- Waktu eksekusi: ~15-30 menit
+- Output: Results di folder `baseline_models/`
+
+**Tujuan:** Model baseline menggunakan `application_train.csv` saja (tanpa agregasi)
+
+### 6. Jalankan Bagian 2B - Full Pipeline (Aggregated Data)
 
 - Buka `preprocessing_and_modeling.ipynb`
 - Run All Cells (sequential execution)
-- Waktu eksekusi: ~15-30 menit (tergantung spesifikasi)
+- Waktu eksekusi: ~15-30 menit
 - Output: Semua models di folder `models/`
 
-### 6. Hasil
+**Tujuan:** Model dengan data agregasi dari 7 tabel untuk perbandingan
+
+### 7. Hasil
 
 Setelah selesai, Anda akan memiliki:
 
-- Trained models di `models/`
-- Model comparison results (CSV)
-- Feature importance analysis (CSV)
+- Baseline results di `baseline_models/` (raw dataset)
+- Full pipeline results di `models/` (aggregated dataset)
+- Model comparison untuk menunjukkan improvement dari aggregation
+- Feature importance analysis
 - Visualisasi ROC curves dan metrics
 
 ---
@@ -118,7 +157,33 @@ Models yang telah dilatih dan dievaluasi:
 - F1-Score
 - ROC-AUC
 
-_Lihat file `models/model_comparison_results.csv` untuk hasil lengkap_
+### Hasil Baseline (Raw Dataset)
+
+Model dilatih hanya dengan `application_train.csv` (**133 features**):
+
+| Model             | Accuracy | Precision | Recall | F1-Score | ROC-AUC    |
+| ----------------- | -------- | --------- | ------ | -------- | ---------- |
+| Random Forest     | 0.7787   | 0.1911    | 0.5316 | 0.2812   | **0.7424** |
+| XGBoost           | 0.8779   | 0.2741    | 0.3030 | 0.2879   | **0.7499** |
+| TabNet            | 0.4899   | 0.1208    | 0.8386 | 0.2112   | **0.7279** |
+| Stacking Ensemble | 0.7949   | 0.1928    | 0.4766 | 0.2746   | **0.6984** |
+
+**Best Baseline Model:** XGBoost dengan ROC-AUC = **0.7499**
+
+### Hasil Full Pipeline (Aggregated Dataset)
+
+_Lihat file `models/model_comparison_results.csv` untuk hasil lengkap dengan data agregasi dari 7 tabel_
+
+**Expected:** Performa lebih tinggi karena menggunakan informasi dari bureau, previous_application, credit_card_balance, dll.
+
+### Key Insight
+
+Perbandingan baseline vs full pipeline menunjukkan **value dari data aggregation** - model dengan data agregasi memiliki performa lebih baik karena:
+
+- Lebih banyak features (dari 7 tabel vs 1 tabel)
+- Informasi historis kredit dari bureau
+- Riwayat aplikasi sebelumnya
+- Pola pembayaran dari multiple sources
 
 ---
 
@@ -137,11 +202,13 @@ _Lihat file `models/model_comparison_results.csv` untuk hasil lengkap_
 
 ## Notes
 
-- **Bagian 1 dan 2** sudah terpisah dalam notebook berbeda untuk kemudahan kolaborasi
-- File `main.ipynb` hanya berisi Data Aggregation & EDA
-- File `preprocessing_and_modeling.ipynb` berisi semua preprocessing dan modeling
-- Pastikan folder `processed/` dan `models/` tercipta otomatis saat running
+- **Bagian 1, 2A, dan 2B** sudah terpisah dalam notebook berbeda untuk kemudahan kolaborasi
+- `main.ipynb`: Data Aggregation & EDA
+- `baseline_modeling.ipynb`: Baseline model dengan raw data saja
+- `preprocessing_and_modeling.ipynb`: Full pipeline dengan data agregasi
+- Pastikan folder `processed/`, `models/`, dan `baseline_models/` tercipta otomatis saat running
 - Model TabNet memerlukan PyTorch
+- **Jalankan baseline_modeling.ipynb terlebih dahulu** untuk mendapatkan baseline comparison
 
 ---
 

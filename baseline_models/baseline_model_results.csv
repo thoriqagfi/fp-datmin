@@ -1,0 +1,5 @@
+Model,Accuracy,Precision,Recall,F1-Score,ROC-AUC
+Random Forest,0.7787,0.1911,0.5316,0.2812,0.7424
+XGBoost,0.8779,0.2741,0.303,0.2879,0.7499
+TabNet,0.4899,0.1208,0.8386,0.2112,0.7279
+Stacking Ensemble,0.7949,0.1928,0.4766,0.2746,0.6984

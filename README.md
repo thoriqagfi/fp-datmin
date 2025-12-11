@@ -22,9 +22,9 @@ Final project ini menyajikan pipeline lengkap mulai dari:
 
 ## Anggota Tim
 
-- **Thariq Agfi Hermawan**  | 5025211215
+- **Thariq Agfi Hermawan** | 5025211215
 - **Achmad Fajri Sudrajab** | 5025221104
-- **Gayu Baruwa**           | 5025221247
+- **Gayu Baruwa** | 5025221247
 
 ---
 
@@ -163,10 +163,10 @@ Model dilatih hanya dengan `application_train.csv` (**133 features**):
 
 | Model             | Accuracy | Precision | Recall | F1-Score | ROC-AUC    |
 | ----------------- | -------- | --------- | ------ | -------- | ---------- |
-| Random Forest     | 0.7787   | 0.1911    | 0.5316 | 0.2812   | **0.7424** |
-| XGBoost           | 0.8779   | 0.2741    | 0.3030 | 0.2879   | **0.7499** |
-| TabNet            | 0.4899   | 0.1208    | 0.8386 | 0.2112   | **0.7279** |
-| Stacking Ensemble | 0.7949   | 0.1928    | 0.4766 | 0.2746   | **0.6984** |
+| Random Forest     | 0.7773   | 0.1871    | 0.5261 | 0.2761   | **0.7396** |
+| XGBoost           | 0.8832   | 0.2810    | 0.2864 | 0.2837   | **0.7492** |
+| TabNet            | 0.5349   | 0.1250    | 0.7934 | 0.2160   | **0.7259** |
+| Stacking Ensemble | 0.7918   | 0.1894    | 0.4816 | 0.2719   | **0.7113** |
 
 **Best Baseline Model:** XGBoost dengan ROC-AUC = **0.7499**
 
